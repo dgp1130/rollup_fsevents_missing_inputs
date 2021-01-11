@@ -1,0 +1,7 @@
+load("@npm//@bazel/rollup:index.bzl", "rollup_bundle")
+
+rollup_bundle(
+    name = "bundle",
+    entry_point = "foo.js",
+    silent = True,
+)

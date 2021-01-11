@@ -1,0 +1,16 @@
+{
+    "name": "rollup_v3",
+    "version": "0.1.0",
+    "private": true,
+    "devDependencies": {
+        "@bazel/bazelisk": "latest",
+        "@bazel/buildifier": "latest",
+        "@bazel/ibazel": "latest",
+        "@bazel/rollup": "^3.0.0",
+        "rollup": "^2.36.1"
+    },
+    "scripts": {
+        "build": "bazel build //...",
+        "test": "bazel test //..."
+    }
+}
