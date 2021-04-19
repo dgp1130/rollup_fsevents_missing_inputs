@@ -5,7 +5,8 @@ JavaScript bundle. However, it fails on Linux platforms because `fsevents`
 cannot be installed.
 
 ```
-$ rm -rf node_modules/ && bazel clean && npm install && bazel test //... 
+$ npm --version && rm -rf node_modules/ && bazel clean && npm install && bazel test //...
+16.14.4
 INFO: Invocation ID: 7d032ea0-ca2d-42f9-af90-76da8f3248cd
 INFO: Starting clean (this may take a while). Consider using --async if the clean takes more than several minutes.
 
@@ -55,7 +56,8 @@ For whatever reason, using `npm ci` instead of `npm install` actually installs
 `fsevents` and works.
 
 ```
-$ /bin/rm -rf node_modules/ && bazel clean && npm ci && bazel test //...     
+$ npm --version && /bin/rm -rf node_modules/ && bazel clean && npm ci && bazel test //...
+16.14.4
 INFO: Invocation ID: 4cbb1ab7-faa2-4265-b399-e0ebad80555d
 INFO: Starting clean (this may take a while). Consider using --async if the clean takes more than several minutes.
 
@@ -73,3 +75,5 @@ INFO: 10 processes: 1 remote cache hit, 9 internal.
 INFO: Build completed successfully, 10 total actions
 INFO: Build completed successfully, 10 total actions
 ```
+
+Note that NPM 7.9.0 seems to reproduce the same issue, however the `npm ci` workaround does not seem to work. The first install *sometimes* works, but all subsequent attempts fail when using either `npm install` or `npm ci`.
